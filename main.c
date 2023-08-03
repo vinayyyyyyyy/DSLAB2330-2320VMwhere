@@ -8,7 +8,7 @@ int main(){
 	//push elements onto the stack
 	push(&mystack, 10);
 	push(&mystack, 20);
-	push(&mystack, 30);
+	push(&mystack, 300);
 	
 	// pop elements from the stack and print them
 	while(!is_empty(&myStack)) {
