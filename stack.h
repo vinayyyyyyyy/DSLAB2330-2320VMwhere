@@ -1,21 +1,21 @@
+//2330,2320
+
+
 #ifndef STACK_H
 #define STACK_H
 
-// Define max size of stack
-#define MAX_SIZE 100
+#define STACK_SIZE 100 // Change this value as needed
 
-// Structure to represent stack
 typedef struct {
-    int data[MAX_SIZE];
+    char data[STACK_SIZE];
     int top;
-}
-    Stack;
+} Stack;
 
-    // function prototypes
-void init(Stack* stack);
-int is_empty(Stack* stack);
-int is_full(Stack* stack);
-void push(Stack* stack, int item); 
-int pop(Stack* stack);
-
-#endif // STACK-H
+// Function prototypes
+void push(Stack *stack, char item);
+void init(Stack *stack);
+int is_empty(Stack *stack);
+int is_full(Stack *stack);
+char pop(Stack *stack);
+char peek (Stack *stack);
+#endif /* STACK_H */

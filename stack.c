@@ -1,39 +1,40 @@
-#include<stdio.h>
+//2330,2320
+
+
 #include "stack.h"
-
-// INITIALIZE THE STACK
-void init(Stack* stack) {
-    stack->top = -1;
-}
-
-// check if stack is empty
-int is_empty(Stack* stack) {
-    return stack->top == -1;
-}
-
-// check if stack is full
-int is_full(Stack* stack) {
-    return stack->top == MAX_SIZE - 1;
-}
-
-// push item onto stack
-void push(Stack* stack, int item) {
-    if (!is_full(stack)) {
+#include<stdio.h>
+void push(Stack *stack, char item) {
+    if (is_full(stack))
+        printf("Overflow\n");
+    else {
         stack->top++;
         stack->data[stack->top] = item;
-    } else {
-        // Handle stack overflow error here(optional)
     }
 }
 
-// pop an item from stack
-int pop(Stack* stack) {
-    if (!is_empty(stack)) {
-        int item = stack->data[stack->top];\
+void init(Stack *stack) {
+    stack->top = -1; // Initialize top to -1 for an empty stack
+}
+
+int is_empty(Stack *stack) {
+    return stack->top == -1; // Return 1 if stack is empty, 0 otherwise
+}
+
+int is_full(Stack *stack) {
+    return stack->top == STACK_SIZE - 1; // Return 1 if stack is full, 0 otherwise
+}
+
+char pop(Stack *stack) {
+    if (is_empty(stack)) {
+        printf("Underflow\n");
+        return -1; // Return a special value to indicate underflow
+    } else {
+        int item = stack->data[stack->top];
         stack->top--;
         return item;
-    } else {
-        // handle stack overflow error(opt)
-        return -1; // can choose to return specific error value 
     }
+}
+char peek (Stack *stack)
+{
+  return stack->data[stack->top];
 }
